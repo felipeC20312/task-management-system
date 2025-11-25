@@ -1,0 +1,269 @@
+# ============================================
+# DEPENDENCIES
+# ============================================
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# ============================================
+# ENVIRONMENT VARIABLES
+# ============================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+!.env.example
+
+# ============================================
+# BUILD OUTPUTS
+# ============================================
+dist/
+build/
+out/
+.next/
+*.tsbuildinfo
+.turbo/
+
+# ============================================
+# LOGS
+# ============================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ============================================
+# TESTING
+# ============================================
+coverage/
+*.lcov
+.nyc_output/
+.jest/
+test-results/
+playwright-report/
+*.spec.js.snap
+
+# ============================================
+# IDEs & EDITORS
+# ============================================
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs (WebStorm, IntelliJ, etc)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============================================
+# OS FILES
+# ============================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# DATABASE
+# ============================================
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+pgdata/
+postgres_data/
+
+# TypeORM
+ormconfig.json
+!ormconfig.example.json
+
+# Prisma (caso use futuramente)
+prisma/migrations/*
+!prisma/migrations/.gitkeep
+
+# ============================================
+# DOCKER
+# ============================================
+docker-compose.override.yml
+*.log
+volumes/
+
+# ============================================
+# CACHE & TEMP FILES
+# ============================================
+.cache/
+.temp/
+.tmp/
+*.tmp
+.eslintcache
+.stylelintcache
+*.tgz
+
+# ============================================
+# PACKAGE MANAGERS
+# ============================================
+# pnpm
+.pnpm-store/
+.pnpm-debug.log
+
+# npm
+package-lock.json
+
+# yarn
+yarn.lock
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# ============================================
+# TURBOREPO
+# ============================================
+.turbo/
+turbo.log
+
+# ============================================
+# FRONTEND SPECIFIC
+# ============================================
+# Vite
+.vite/
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Next.js (caso use)
+.next/
+next-env.d.ts
+
+# React
+.react/
+
+# Static files (generated)
+public/build/
+public/dist/
+
+# ============================================
+# BACKEND SPECIFIC
+# ============================================
+# NestJS
+dist/
+*.js.map
+
+# Uploads (caso implemente)
+uploads/
+temp-uploads/
+
+# ============================================
+# CERTIFICATES & KEYS
+# ============================================
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+.certificates/
+
+# ============================================
+# MISC
+# ============================================
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Sensitive data
+secrets/
+credentials/
+*.secret
+
+# Documentation builds
+docs/_build/
+site/
+
+# Storybook
+storybook-static/
+
+# ============================================
+# CI/CD
+# ============================================
+# GitHub Actions
+!.github/workflows/
+
+# GitLab CI
+.gitlab-ci-local/
+
+# ============================================
+# MONOREPO SPECIFIC
+# ============================================
+# Lock files (mantemos apenas pnpm-lock.yaml)
+apps/*/package-lock.json
+apps/*/yarn.lock
+packages/*/package-lock.json
+packages/*/yarn.lock
+
+# Build artifacts em cada app
+apps/*/dist/
+apps/*/build/
+apps/*/.next/
+apps/*/.turbo/
+
+# Build artifacts em cada package
+packages/*/dist/
+packages/*/build/
+packages/*/.turbo/
+
+# ============================================
+# RABBITMQ
+# ============================================
+rabbitmq_data/
+.erlang.cookie
+
