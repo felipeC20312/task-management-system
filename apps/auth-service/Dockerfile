@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/auth-service/package.json ./apps/auth-service/
 COPY packages ./packages
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 COPY apps/auth-service ./apps/auth-service
 CMD ["pnpm", "--filter", "auth-service", "dev"]
 
@@ -15,7 +15,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/auth-service/package.json ./apps/auth-service/
 COPY packages ./packages
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 COPY apps/auth-service ./apps/auth-service
 RUN pnpm --filter auth-service build
 
