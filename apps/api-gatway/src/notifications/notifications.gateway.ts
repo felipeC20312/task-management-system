@@ -7,9 +7,9 @@ import {
   ConnectedSocket,
   MessageBody,
 } from '@nestjs/websockets';
-import { UseGuards } from '@nestjs/common';
-import { Server, Socket } from 'socket.io';
-import { WsJwtGuard } from '../auth/guards/ws-jwt.guard';
+import {UseGuards} from '@nestjs/common';
+import {Server, Socket} from 'socket.io';
+import {WsJwtGuard} from '../auth/guards/ws-jwt.guard';
 
 @WebSocketGateway({
   cors: {
@@ -24,7 +24,7 @@ export class NotificationsGateway
   @WebSocketServer()
   server: Server;
 
-  private connectedUsers: Map<string, string> = new Map(); // userId -> socketId
+  private connectedUsers: Map<string, string> = new Map();
 
   handleConnection(client: Socket) {
     console.log(`Client connected: ${client.id}`);
@@ -32,7 +32,6 @@ export class NotificationsGateway
 
   handleDisconnect(client: Socket) {
     console.log(`Client disconnected: ${client.id}`);
-    // Remove user from connected users
     for (const [userId, socketId] of this.connectedUsers.entries()) {
       if (socketId === client.id) {
         this.connectedUsers.delete(userId);
@@ -45,14 +44,14 @@ export class NotificationsGateway
   @SubscribeMessage('join')
   handleJoin(
     @ConnectedSocket() client: Socket,
-    @MessageBody() data: { userId: string },
+    @MessageBody() data: {userId: string},
   ) {
     const userId = client.data.user?.userId;
     if (userId) {
       this.connectedUsers.set(userId, client.id);
       client.join(`user:${userId}`);
       console.log(`User ${userId} joined their room`);
-      return { event: 'joined', data: { userId } };
+      return {event: 'joined', data: {userId}};
     }
   }
 

@@ -7,7 +7,7 @@ import {
   UseGuards,
   Inject,
 } from '@nestjs/common';
-import { ClientProxy } from '@nestjs/microservices';
+import {ClientProxy} from '@nestjs/microservices';
 import {
   ApiTags,
   ApiOperation,
@@ -16,9 +16,9 @@ import {
   ApiQuery,
   ApiParam,
 } from '@nestjs/swagger';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { CurrentUser } from '../auth/decorators/current-user.decorator';
-import { firstValueFrom, timeout } from 'rxjs';
+import {JwtAuthGuard} from '../auth/guards/jwt-auth.guard';
+import {CurrentUser} from '../auth/decorators/current-user.decorator';
+import {firstValueFrom, timeout} from 'rxjs';
 
 @ApiTags('notifications')
 @ApiBearerAuth('JWT-auth')
@@ -31,10 +31,10 @@ export class NotificationsController {
   ) {}
 
   @Get()
-  @ApiOperation({ summary: 'Get user notifications' })
-  @ApiQuery({ name: 'page', required: false, type: Number })
-  @ApiQuery({ name: 'size', required: false, type: Number })
-  @ApiQuery({ name: 'read', required: false, type: Boolean })
+  @ApiOperation({summary: 'Get user notifications'})
+  @ApiQuery({name: 'page', required: false, type: Number})
+  @ApiQuery({name: 'size', required: false, type: Number})
+  @ApiQuery({name: 'read', required: false, type: Boolean})
   @ApiResponse({
     status: 200,
     description: 'Notifications retrieved successfully',
@@ -48,16 +48,16 @@ export class NotificationsController {
     return firstValueFrom(
       this.notificationsClient
         .send(
-          { cmd: 'get-notifications' },
-          { userId: user.userId, page, size, read },
+          {cmd: 'get-notifications'},
+          {userId: user.userId, page, size, read},
         )
         .pipe(timeout(5000)),
     );
   }
 
   @Put(':id/read')
-  @ApiOperation({ summary: 'Mark notification as read' })
-  @ApiParam({ name: 'id', type: String })
+  @ApiOperation({summary: 'Mark notification as read'})
+  @ApiParam({name: 'id', type: String})
   @ApiResponse({
     status: 200,
     description: 'Notification marked as read',
@@ -65,7 +65,7 @@ export class NotificationsController {
   async markAsRead(@Param('id') id: string, @CurrentUser() user: any) {
     return firstValueFrom(
       this.notificationsClient
-        .send({ cmd: 'mark-notification-read' }, { id, userId: user.userId })
+        .send({cmd: 'mark-notification-read'}, {id, userId: user.userId})
         .pipe(timeout(5000)),
     );
   }

@@ -1,4 +1,4 @@
-import { DocumentBuilder } from '@nestjs/swagger';
+import {DocumentBuilder} from '@nestjs/swagger';
 
 export const swaggerConfig = new DocumentBuilder()
   .setTitle(process.env.SWAGGER_TITLE || 'Task Management API')

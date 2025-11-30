@@ -41,8 +41,8 @@ async function bootstrap() {
   await app.listen(port);
 
   console.log(`
-    🚀 API Gateway is running on: http://localhost:${port}
-    📚 Swagger documentation: http://localhost:${port}/api/docs
+      API Gateway is running on: http://localhost:${port}
+    󰌱  Swagger documentation: http://localhost:${port}/api/docs
   `);
 }
 
