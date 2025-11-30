@@ -11,18 +11,18 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ unique: true })
+  @Column({unique: true})
   email: string;
 
-  @Column({ unique: true })
+  @Column({unique: true})
   username: string;
 
   @Column()
   password: string;
 
-  @CreateDateColumn({ name: 'created_at' })
+  @CreateDateColumn({name: 'created_at'})
   createdAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({name: 'updated_at'})
   updatedAt: Date;
 }

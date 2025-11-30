@@ -5,7 +5,7 @@ import {
   ManyToOne,
   CreateDateColumn,
 } from 'typeorm';
-import { User } from './user.entity';
+import {User} from './user.entity';
 
 @Entity('refresh_tokens')
 export class RefreshToken {
@@ -18,12 +18,12 @@ export class RefreshToken {
   @ManyToOne(() => User)
   user: User;
 
-  @Column({ name: 'expires_at' })
+  @Column({name: 'expires_at'})
   expiresAt: Date;
 
-  @Column({ default: false })
+  @Column({default: false})
   revoked: boolean;
 
-  @CreateDateColumn({ name: 'created_at' })
+  @CreateDateColumn({name: 'created_at'})
   createdAt: Date;
 }
