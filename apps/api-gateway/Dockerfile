@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/api-gateway/package.json ./apps/api-gateway/
 COPY packages ./packages
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 COPY apps/api-gateway ./apps/api-gateway
 CMD ["pnpm", "--filter", "api-gateway", "dev"]
 
@@ -15,7 +15,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/api-gateway/package.json ./apps/api-gateway/
 COPY packages ./packages
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 COPY apps/api-gateway ./apps/api-gateway
 RUN pnpm --filter api-gateway build
 

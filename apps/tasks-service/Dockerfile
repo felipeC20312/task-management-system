@@ -15,7 +15,7 @@ COPY packages ./packages
 COPY apps/tasks-service/package.json ./apps/tasks-service/
 
 # Install all dependencies
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 
 # Copy tasks-service source
 COPY apps/tasks-service ./apps/tasks-service
@@ -36,7 +36,7 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY packages ./packages
 COPY apps/tasks-service/package.json ./apps/tasks-service/
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 
 COPY apps/tasks-service ./apps/tasks-service
 

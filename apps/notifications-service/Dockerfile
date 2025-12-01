@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/notifications-service/package.json ./apps/notifications-service/
 COPY packages ./packages
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 COPY apps/notifications-service ./apps/notifications-service
 CMD ["pnpm", "--filter", "notifications-service", "dev"]
 
@@ -15,7 +15,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/notifications-service/package.json ./apps/notifications-service/
 COPY packages ./packages
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 COPY apps/notifications-service ./apps/notifications-service
 RUN pnpm --filter notifications-service build
 

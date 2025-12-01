@@ -3,8 +3,8 @@ import {
   createRoute,
   createRouter,
   Outlet,
-} from '@tanstack/react-router';
-import { lazy } from 'react';
+} from "@tanstack/react-router";
+import { lazy } from "react";
 
 const rootRoute = createRootRoute({
   component: () => <Outlet />,
@@ -12,31 +12,31 @@ const rootRoute = createRootRoute({
 
 const loginRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/login',
+  path: "/login",
   component: lazy(() =>
-    import("@/features/auth/pages/login-page").then((m) => ({
-      default: m.LoginPage
-    }))
+    import("@/features/auth/pages/login/loginPage").then((m) => ({
+      default: m.LoginPage,
+    })),
   ),
 });
 
 const registerRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/register',
+  path: "/register",
   component: lazy(() =>
-    import("@/features/auth/pages/register-page").then((m) => ({
-      default: m.RegisterPage
-    }))
+    import("@/features/auth/pages/register/registerPage").then((m) => ({
+      default: m.RegisterPage,
+    })),
   ),
 });
 
 const dashboardRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/dashboard',
+  path: "/dashboard",
   component: lazy(() =>
-    import("@/features/dashboard/pages/dashboard-page").then((m) => ({
-      default: m.DashboardPage
-    }))
+    import("@/features/dashboard/pages/dashboardPage").then((m) => ({
+      default: m.DashboardPage,
+    })),
   ),
 });
 
@@ -48,7 +48,7 @@ const routeTree = rootRoute.addChildren([
 
 export const router = createRouter({ routeTree });
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
   }

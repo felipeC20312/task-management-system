@@ -3,99 +3,134 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+/* ================================
+   BASE THEME (LIGHT MODE / ROOT)
+   ================================ */
+
 :root {
-  --background: #28292E;
-  --background-dark: #1B1B1F;
-  --foreground: #FFFFFF;
-  --primary: #E65628;
-  --primary-dark: #993A1B;
+  /* Core */
+  --background: #28292e;
+  --background-dark: #1b1b1f;
+  --foreground: #ffffff;
 
-  --radius: 0.625rem;
+  --primary: #e65628;
+  --primary-dark: #993a1b;
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --radius: 2rem;
 
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  /* Components */
+  --border: #3e4047;
+  --card: var(--background);
+  --card-foreground: var(--foreground);
+  --card-border: var(--border);
 
-  --primary-foreground: oklch(0.985 0 0);
+  --input: var(--border);
 
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --popover: var(--background);
+  --popover-foreground: #2a2a2a;
 
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --primary-foreground: #fefefe;
 
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --secondary: var(--background);
+  --secondary-foreground: #2b2b2b;
 
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --muted: #f4f4f4;
+  --muted-foreground: #737373;
 
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --accent: #f5f5f5;
+  --accent-foreground: #171717;
 
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --destructive: #e7000b;
+  --ring: #a1a1a1;
+
+  /* Charts */
+  --chart-1: #f54900;
+  --chart-2: #009689;
+  --chart-3: #104e64;
+  --chart-4: #ffb900;
+  --chart-5: #ffae06;
+
+  /* Sidebar */
+  --sidebar: #fefefe;
+  --sidebar-foreground: #2a2a2a;
+  --sidebar-primary: #2b2b2b;
+  --sidebar-primary-foreground: #fefefe;
+  --sidebar-accent: #f5f5f5;
+  --sidebar-accent-foreground: #2b2b2b;
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: #a1a1a1;
 }
+
+/* ================================
+   TAILWIND DARK MODE COMPAT
+   ================================ */
 
 .dark {
-  --background: #28292E;
-  --background-dark: #1B1B1F;
-  --foreground: #FFFFFF;
-  --primary: #E65628;
-  --primary-dark: #993A1B;
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #1d1c1a;
+  --background-dark: #20222c;
+  --foreground: #fdfdfd;
+
+  --primary: #e65628;
+  --primary-dark: #993a1b;
+
+  --card: #2b2b2b;
+  --card-foreground: #fefefe;
+
+  --popover: #2b2b2b;
+  --popover-foreground: #fefefe;
+
+  --primary-foreground: #2b2b2b;
+
+  --secondary: #454545;
+  --secondary-foreground: #fefefe;
+
+  --muted: #454545;
+  --muted-foreground: #b5b5b5;
+
+  --accent: #454545;
+  --accent-foreground: #fefefe;
+
+  --destructive: #e72204;
+
+  --border: #ffffff1a;
+  --input: #ffffff26;
+  --ring: #8f8f8f;
+
+  /* Charts */
+  --chart-1: #9339ff;
+  --chart-2: #2b8a66;
+  --chart-3: #ffae06;
+  --chart-4: #9a3bff;
+  --chart-5: #a64e06;
+
+  /* Sidebar */
+  --sidebar: #2b2b2b;
+  --sidebar-foreground: #fefefe;
+  --sidebar-primary: #9339ff;
+  --sidebar-primary-foreground: #fefefe;
+  --sidebar-accent: #454545;
+  --sidebar-accent-foreground: #fefefe;
+  --sidebar-border: #ffffff1a;
+  --sidebar-ring: #8f8f8f;
 }
 
-
+/* ================================
+   DATA-THEME DARK OVERRIDE
+   (Shadcn / tw Variants)
+   ================================ */
 
 [data-theme="dark"] {
   --background: #1d1c1a;
   --background-dark: #20222c;
   --foreground: #fdfdfd;
-  --primary: #E65628;
-  --primary-dark: #993A1B;
+
+  --primary: #e65628;
+  --primary-dark: #993a1b;
 }
+
+/* ================================
+   THEME EXPORT FOR TAILWIND
+   ================================ */
 
 @theme inline {
   --color-background: var(--background);
@@ -103,9 +138,6 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
-
-  --color-primary-light: var(--primary-light);
-  --color-primary-lighter: var(--primary-lighter);
 
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -116,12 +148,12 @@
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
 
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
   --color-chart-1: var(--chart-1);
-  
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -140,7 +172,7 @@
 
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
-  
+
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
 
@@ -150,22 +182,7 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/*=== UTILITY ===*/
-@utility bg-banner-* {
-  background-image: --value(--bg-banner-*);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-@utility custom-slider {
-  -ms-overflow-style: none;
-  scrollbar-width: thin;
-}
-.custom-slider:: -webkit-scrollbar {
-  height: 8px;
-}
-
+/* UTILITY */
 @utility no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -174,57 +191,12 @@
   display: none;
 }
 
-@utility border-top-gradient {
-  display: flex;
-}
-.border-top-gradient::after {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(to right, transparent, orange, transparent);
-}
-
-@utility border-gradient {
-  border: gradient(to right, var(--primary), var(--primary-light)) 1px solid;
-}
-
-/*=== KEYFRAMES ===*/
-@keyframes smoothAppear {
-  0% {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
-    clip-path: inset(0 0 100% 0);
-  }
-  60% {
-    opacity: 0.8;
-    transform: translateY(0) scale(1.02);
-    clip-path: inset(0 0 0 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-.block-appear {
-  animation: smoothAppear linear;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
-  will-change: transform, opacity, clip-path;
-}
-
-/*=== css resets ===*/
+/* RESET */
 * {
   font-family: "Poppins", sans-serif;
 }
 
 body {
-  width: 100%;
-  height: 100%;
   background: var(--background);
   color: var(--foreground);
 }
@@ -233,8 +205,6 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 10rem;
 }
-
-/*---break---*/
 
 @layer base {
   * {
