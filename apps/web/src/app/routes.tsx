@@ -32,10 +32,10 @@ const registerRoute = createRoute({
 
 const dashboardRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/dashboard",
+  path: "/tasklist",
   component: lazy(() =>
-    import("@/features/dashboard/pages/dashboardPage").then((m) => ({
-      default: m.DashboardPage,
+    import("@/features/tasklist/pages/tasklist/taskListPage").then((m) => ({
+      default: m.TaskListPage,
     })),
   ),
 });

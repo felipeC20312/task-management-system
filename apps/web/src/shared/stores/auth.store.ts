@@ -10,7 +10,7 @@ interface AuthState {
   isLoading: boolean;
   error: string | null;
 
-  login: (username: string, password: string) => Promise<void>;
+  login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   setAuth: (data: AuthResponse) => void;
   clearError: () => void;
@@ -19,7 +19,7 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       user: null,
       token: null,
       refreshToken: null,
@@ -27,11 +27,11 @@ export const useAuthStore = create<AuthState>()(
       isLoading: false,
       error: null,
 
-      login: async (username, password) => {
+      login: async (email, password) => {
         set({ isLoading: true, error: null });
 
         try {
-          const data = await authService.login({ username, password });
+          const data = await authService.login({ email, password });
 
           set({
             user: data.user,
@@ -103,12 +103,13 @@ export const useAuthStore = create<AuthState>()(
             token,
             isAuthenticated: true,
           });
-        } catch (error) {
+        } catch (err) {
           set({
             user: null,
             token: null,
             isAuthenticated: false,
           });
+          console.error(err);
           localStorage.removeItem("token");
         }
       },

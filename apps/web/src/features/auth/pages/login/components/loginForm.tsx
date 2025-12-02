@@ -1,4 +1,3 @@
-import { useState } from "react";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
@@ -23,14 +22,11 @@ import { toast } from "react-toastify";
 import { useNavigate } from "@tanstack/react-router";
 
 export const LoginForm = () => {
-  const { login, isLoading, error, clearError } = useAuthStore();
+  const { login, isLoading, clearError } = useAuthStore();
   const navigate = useNavigate({ from: "/login" });
 
   const formSchema = z.object({
-    username: z
-      .string()
-      .min(5, "Usuário deve ter no mínimo 5 caracteres")
-      .max(80),
+    email: z.string().min(5, "Email deve ter no mínimo 5 caracteres").max(80),
     password: z
       .string()
       .min(5, "Senha deve ter no mínimo 5 caracteres")
@@ -40,7 +36,7 @@ export const LoginForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      email: "",
       password: "",
     },
   });
@@ -49,13 +45,13 @@ export const LoginForm = () => {
     clearError();
 
     try {
-      await login(values.username, values.password);
+      await login(values.email, values.password);
 
       toast.success("Loged in, redirecting!", {});
 
-      navigate({ to: "/dashboard" });
-    } catch (error: any) {
-      toast.error("Error while login in...", {});
+      navigate({ to: "/tasklist" });
+    } catch (err: any) {
+      toast.error(`Error: ${err}`, {});
     }
   };
 
@@ -71,7 +67,7 @@ export const LoginForm = () => {
         <form id="form" onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
             <Controller
-              name="username"
+              name="email"
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
@@ -80,7 +76,7 @@ export const LoginForm = () => {
                     {...field}
                     aria-invalid={fieldState.invalid}
                     placeholder="exemple@gmail.com"
-                    autoComplete="username"
+                    autoComplete="email"
                     className="h-12 pl-4"
                     disabled={isLoading}
                   />

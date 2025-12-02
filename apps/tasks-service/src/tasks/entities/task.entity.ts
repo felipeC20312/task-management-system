@@ -4,10 +4,9 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToOne,
   OneToMany,
-  JoinColumn,
 } from 'typeorm';
+
 import {TaskStatus} from '../enums/task-status.enum';
 import {TaskPriority} from '../enums/task-priority.enum';
 import {TaskAssignee} from './task-assignee.entity';
@@ -43,7 +42,7 @@ export class Task {
   status: TaskStatus;
 
   @Column({name: 'created_by'})
-  createdBy: string; // User ID from auth service
+  createdBy: string;
 
   @OneToMany(() => TaskAssignee, (assignee) => assignee.task, {
     cascade: true,
