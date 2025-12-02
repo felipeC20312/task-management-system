@@ -9,10 +9,10 @@
     "dev": "nest start --watch",
     "build": "nest build",
     "start": "node dist/main",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
     "migrate": "typeorm migration:run -d src/database/data-source.ts",
-    "migrate:generate": "typeorm migration:generate -d src/database/data-source.ts",
-    "migrate:revert": "typeorm migration:revert -d src/database/data-source.ts",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+    "migrate:generate": "typeorm migration:generate src/database/migrations/Migration -d src/database/data-source.ts",
+    "migrate:revert": "typeorm migration:revert -d src/database/data-source.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

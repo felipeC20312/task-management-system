@@ -18,10 +18,11 @@ export class AuthController {
     return this.authService.login(loginDto);
   }
 
-  @MessagePattern({cm: 'refresh'})
+  @MessagePattern({cmd: 'refresh'})
   async refresh(@Payload() data: {refreshToken: string}) {
     return this.authService.refresh(data.refreshToken);
   }
+
   @MessagePattern({cmd: 'validate-user'})
   async validateUser(@Payload() data: {userId: string}) {
     return this.authService.validateUser(data.userId);

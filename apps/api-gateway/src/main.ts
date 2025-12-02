@@ -9,13 +9,11 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
 
-  // CORS
   app.enableCors({
     origin: configService.get('app.corsOrigin'),
     credentials: true,
   });
 
-  // Global validation pipe
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -27,7 +25,6 @@ async function bootstrap() {
     }),
   );
 
-  // Swagger setup
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup(process.env.SWAGGER_PATH || 'api/docs', app, document, {
     swaggerOptions: {

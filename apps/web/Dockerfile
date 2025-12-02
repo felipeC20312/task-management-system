@@ -17,7 +17,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/web/package.json ./apps/web/
 COPY packages ./packages
-RUN pnpm insta
+RUN pnpm install
 COPY apps/web ./apps/web
 WORKDIR /app/apps/web
 RUN pnpm run build
