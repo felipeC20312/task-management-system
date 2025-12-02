@@ -11,7 +11,7 @@
     "migrate:revert": "typeorm migration:revert -d src/database/data-source.ts"
   },
   "dependencies": {
-    "@repo/config": "workspace:*",
+    "@monorepo/common-config": "workspace:^",
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
     "@nestjs/jwt": "^11.0.1",

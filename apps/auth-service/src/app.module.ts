@@ -2,8 +2,7 @@ import {Module} from '@nestjs/common';
 import {ConfigModule, ConfigService} from '@nestjs/config';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {AuthModule} from './auth/auth.module';
-import databaseConfig from './config/database.config';
-import jwtConfig from './config/jwt.config';
+import {databaseConfig, jwtConfig} from '@monorepo/config/dist';
 
 @Module({
   imports: [
