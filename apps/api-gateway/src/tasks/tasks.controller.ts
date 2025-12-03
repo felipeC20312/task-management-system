@@ -10,7 +10,6 @@ import {
   HttpCode,
   HttpStatus,
   Inject,
-  UseGuards,
 } from '@nestjs/common';
 import {ClientProxy} from '@nestjs/microservices';
 import {
@@ -21,13 +20,11 @@ import {
   ApiParam,
   ApiQuery,
 } from '@nestjs/swagger';
-import {JwtAuthGuard} from '../auth/guards/jwt-auth.guard';
 import {CurrentUser} from '../auth/decorators/current-user.decorator';
 import {firstValueFrom, timeout} from 'rxjs';
 
 @ApiTags('tasks')
 @ApiBearerAuth('JWT-auth')
-@UseGuards(JwtAuthGuard)
 @Controller('api/tasks')
 export class TasksController {
   constructor(

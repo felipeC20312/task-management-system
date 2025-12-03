@@ -3,14 +3,14 @@ import {ConfigModule, ConfigService} from '@nestjs/config';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {TasksModule} from './tasks/tasks.module';
 import {CommentsModule} from './comments/comments.module';
-import databaseConfig from './config/database.config';
-import rabbitmqConfig from './config/rabbitmq.config';
+
+import {databaseConfig, rabbitMqConfig} from '@monorepo/common-config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [databaseConfig, rabbitmqConfig],
+      load: [databaseConfig, rabbitMqConfig],
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],

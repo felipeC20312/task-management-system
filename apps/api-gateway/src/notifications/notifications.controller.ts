@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Get,
-  Query,
-  Param,
-  Put,
-  UseGuards,
-  Inject,
-} from '@nestjs/common';
+import {Controller, Get, Query, Param, Put, Inject} from '@nestjs/common';
 import {ClientProxy} from '@nestjs/microservices';
 import {
   ApiTags,
@@ -16,13 +8,11 @@ import {
   ApiQuery,
   ApiParam,
 } from '@nestjs/swagger';
-import {JwtAuthGuard} from '../auth/guards/jwt-auth.guard';
 import {CurrentUser} from '../auth/decorators/current-user.decorator';
 import {firstValueFrom, timeout} from 'rxjs';
 
 @ApiTags('notifications')
 @ApiBearerAuth('JWT-auth')
-@UseGuards(JwtAuthGuard)
 @Controller('api/notifications')
 export class NotificationsController {
   constructor(

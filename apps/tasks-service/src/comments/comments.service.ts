@@ -1,13 +1,17 @@
 import {Injectable, NotFoundException} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Repository} from 'typeorm';
-import {Comment} from './entities/comment.entity';
-import {Task} from '../tasks/entities/task.entity';
-import {CreateCommentDto} from './dto/create-comment.dto';
-import {FilterCommentDto} from './dto/filter-comment.dto';
-import {TaskEventsPublisher} from '../events/publishers/task-events.publisher';
-import {TaskHistory} from '../tasks/entities/task-history.entity';
-import {HistoryAction} from '../tasks/enums/history-action.enum';
+
+import {TaskEventsPublisher} from 'src/events/publishers/task-events.publisher';
+
+import {
+  Comment,
+  Task,
+  TaskHistory,
+  CreateCommentDto,
+  HistoryAction,
+  FilterCommentDto,
+} from '@monorepo/common-types';
 
 @Injectable()
 export class CommentsService {

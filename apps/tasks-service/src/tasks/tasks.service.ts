@@ -5,14 +5,17 @@ import {
 } from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
 import {In, Repository} from 'typeorm';
-import {Task} from './entities/task.entity';
-import {TaskAssignee} from './entities/task-assignee.entity';
-import {TaskHistory} from './entities/task-history.entity';
-import {CreateTaskDto} from './dto/create-task.dto';
-import {UpdateTaskDto} from './dto/update-task.dto';
-import {FilterTaskDto} from './dto/filter-task.dto';
-import {HistoryAction} from './enums/history-action.enum';
-import {TaskEventsPublisher} from '../events/publishers/task-events.publisher';
+import {TaskEventsPublisher} from 'src/events/publishers/task-events.publisher';
+
+import {
+  Task,
+  TaskAssignee,
+  TaskHistory,
+  CreateTaskDto,
+  FilterTaskDto,
+  HistoryAction,
+  UpdateTaskDto,
+} from '@monorepo/common-types';
 
 @Injectable()
 export class TasksService {

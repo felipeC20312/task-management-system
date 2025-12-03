@@ -1,9 +1,12 @@
 import {Controller} from '@nestjs/common';
 import {MessagePattern, Payload} from '@nestjs/microservices';
 import {TasksService} from './tasks.service';
-import {CreateTaskDto} from './dto/create-task.dto';
-import {UpdateTaskDto} from './dto/update-task.dto';
-import {FilterTaskDto} from './dto/filter-task.dto';
+
+import {
+  CreateTaskDto,
+  FilterTaskDto,
+  UpdateTaskDto,
+} from '@monorepo/common-types';
 
 @Controller()
 export class TasksController {

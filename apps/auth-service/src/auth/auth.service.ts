@@ -9,6 +9,8 @@ import {JwtService} from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import {User} from '../../../../packages/types/src/auth/entities/user.entity';
 import {RefreshToken} from '../../../../packages/types/src/auth/entities/refresh-token.entity';
+import {LoginDto} from '@monorepo/types/src/auth/dto/login.dto';
+import {RegisterDto} from '@monorepo/types/src/auth/dto/register.dto';
 
 @Injectable()
 export class AuthService {

@@ -4,10 +4,9 @@ import {ClientsModule, Transport} from '@nestjs/microservices';
 import {ConfigModule, ConfigService} from '@nestjs/config';
 import {CommentsController} from './comments.controller';
 import {CommentsService} from './comments.service';
-import {Comment} from './entities/comment.entity';
-import {Task} from '../tasks/entities/task.entity';
-import {TaskHistory} from '../tasks/entities/task-history.entity';
 import {TaskEventsPublisher} from '../events/publishers/task-events.publisher';
+
+import {Task, TaskHistory} from '@monorepo/common-types';
 
 @Module({
   imports: [
@@ -16,16 +15,25 @@ import {TaskEventsPublisher} from '../events/publishers/task-events.publisher';
       {
         name: 'RABBITMQ_SERVICE',
         imports: [ConfigModule],
-        useFactory: (configService: ConfigService) => ({
-          transport: Transport.RMQ,
-          options: {
-            urls: [configService.get('rabbitmq.url')],
-            queue: configService.get('rabbitmq.eventsExchange'),
-            queueOptions: {
-              durable: true,
+        useFactory: (configService: ConfigService) => {
+          const urls = [configService.get('rabbitmq.url')];
+          const queue = configService.get('rabbitmq.eventsExchange');
+
+          if (!urls || !queue) {
+            throw new Error('rabbitmq config not found.');
+          }
+
+          return {
+            transport: Transport.RMQ,
+            options: {
+              urls: urls,
+              queue: queue,
+              queueOptions: {
+                durable: true,
+              },
             },
-          },
-        }),
+          };
+        },
         inject: [ConfigService],
       },
     ]),

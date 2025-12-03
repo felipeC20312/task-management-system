@@ -1,8 +1,8 @@
 import {Controller} from '@nestjs/common';
 import {MessagePattern, Payload} from '@nestjs/microservices';
 import {CommentsService} from './comments.service';
-import {CreateCommentDto} from './dto/create-comment.dto';
-import {FilterCommentDto} from './dto/filter-comment.dto';
+
+import {CreateCommentDto, FilterCommentDto} from '@monorepo/common-types';
 
 @Controller()
 export class CommentsController {

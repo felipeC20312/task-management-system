@@ -10,8 +10,8 @@ import {ClientProxy} from '@nestjs/microservices';
 import {ApiTags, ApiOperation, ApiResponse, ApiBody} from '@nestjs/swagger';
 import {Public} from './decorators/public.decorator';
 import {firstValueFrom, timeout} from 'rxjs';
-import {RegisterDto} from './dto/register.dto';
-import {LoginDto} from './dto/login.dto';
+
+import {RegisterDto, LoginDto} from '@monorepo/common-types';
 
 @ApiTags('auth')
 @Controller('api/auth')

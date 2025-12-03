@@ -4,10 +4,9 @@ import {ClientsModule, Transport} from '@nestjs/microservices';
 import {ConfigModule, ConfigService} from '@nestjs/config';
 import {TasksController} from './tasks.controller';
 import {TasksService} from './tasks.service';
-import {Task} from './entities/task.entity';
-import {TaskAssignee} from './entities/task-assignee.entity';
-import {TaskHistory} from './entities/task-history.entity';
 import {TaskEventsPublisher} from '../events/publishers/task-events.publisher';
+
+import {Task, TaskAssignee, TaskHistory} from '@monorepo/common-types';
 
 @Module({
   imports: [

@@ -2,7 +2,6 @@ import {Module} from '@nestjs/common';
 import {ClientsModule, Transport} from '@nestjs/microservices';
 import {ConfigModule, ConfigService} from '@nestjs/config';
 import {JwtModule} from '@nestjs/jwt';
-import {NotificationsGateway} from './notifications.gateway';
 import {NotificationsController} from './notifications.controller';
 
 @Module({
@@ -48,8 +47,6 @@ import {NotificationsController} from './notifications.controller';
       },
     ]),
   ],
-  providers: [NotificationsGateway],
   controllers: [NotificationsController],
-  exports: [NotificationsGateway],
 })
 export class NotificationsModule {}
